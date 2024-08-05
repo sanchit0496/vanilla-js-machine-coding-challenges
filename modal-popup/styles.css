@@ -1,0 +1,26 @@
+.modal{
+    background-color: lightgrey;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: none;
+}
+.modal-header{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.modal-body{
+    background-color: whitesmoke;
+    height: 100%;
+    height: 150px;
+    padding: 5px;
+}
+button{
+    cursor: pointer;
+}

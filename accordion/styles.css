@@ -1,0 +1,31 @@
+.accordion {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-header {
+    background-color: #f9f9f9;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accordion-body {
+    display: none;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.accordion-body {
+    display: none;
+}
+.accordion-body.active {
+    display: block;
+}

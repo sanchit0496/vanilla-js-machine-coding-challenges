@@ -25,3 +25,14 @@ footer{
     border: 1px solid gray;
     height: 9.5vh;
 }
+
+@media (max-width: 768px) {
+    #mid-section{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+    #middle-divs{
+        width: 100vw;
+    }
+}

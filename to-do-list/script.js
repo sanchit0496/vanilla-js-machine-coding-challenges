@@ -4,6 +4,7 @@ document.getElementById("add-task-button").addEventListener("click", () => {
   const inputComponent = document.getElementById("input-component");
   if (inputComponent.value.length === 0) {
     alert("Value cannot be empty");
+    return;
   }
   addTask(inputComponent.value);
   inputComponent.value = "";

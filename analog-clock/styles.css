@@ -1,0 +1,38 @@
+.clock-holder{
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: lightskyblue;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+}
+.data{
+    bottom: 50%;
+    left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    transform-origin: bottom center;
+    width: 350px;
+    height: 350px;
+}
+
+#hours{
+    height: 120px;
+    background-color: black;
+    width: 5px;
+}
+#mins{
+    height: 140px;
+    background-color: gray;
+    width: 3px;
+
+}
+#seconds{
+    height: 160px;
+    background-color: lightgray;
+    width: 2px;
+}

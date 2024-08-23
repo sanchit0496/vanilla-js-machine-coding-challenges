@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+}
+
+input{
+    border: 1px solid black;
+}
+.formElem{
+    padding: 5px;
+}
+#contact-form{
+    padding: 25px;
+}
+button{
+    margin-top: 25px;
+}

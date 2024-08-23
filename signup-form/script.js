@@ -3,14 +3,17 @@ const form = document.getElementById("contact-form");
 const firstNameInput = document.getElementById("first-name");
 const lastNameInput = document.getElementById("last-name");
 const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById('password');
 
 const fNameErrorSpan = document.getElementById("fNameError");
 const lNameErrorSpan = document.getElementById("lNameError");
 const emailErrorSpan = document.getElementById("emailError");
+const passwordErrorSpan = document.getElementById("passwordError");
 
 let fName = "";
 let lName = "";
 let email = "";
+let password  = "";
 
 firstNameInput.addEventListener("change", (e) => {
   fName = e.target.value;
@@ -24,6 +27,9 @@ emailInput.addEventListener("change", (e) => {
   email = e.target.value;
 });
 
+passwordInput.addEventListener("change", (e) => {
+  password = e.target.value;
+});
 
 const setError = (inputElement, errorSpan, errorMessage) => {
   errorSpan.textContent = errorMessage;
@@ -62,6 +68,18 @@ const validateForm = () => {
   }
   else {
     removeError(emailInput, emailErrorSpan);
+  }
+
+  if (password.length === 0) {
+    setError(passwordInput, passwordErrorSpan, "Password cannot be empty");
+    errorArr.push('password cannot be empty');
+  }
+  if (password.length <= 5  || password.length >= 12) {
+    setError(passwordInput, passwordErrorSpan, "Password must be between 5 and 12 characters long");
+    errorArr.push('password cannot be empty');
+  }
+  else {
+    removeError(passwordInput, passwordErrorSpan);
   }
   
   return errorArr;

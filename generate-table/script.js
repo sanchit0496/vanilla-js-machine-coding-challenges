@@ -31,11 +31,11 @@ function createTable(rows, cols) {
   for (let i = 0; i < rows; i++) {
     const tRow = document.createElement("tr");
 
-    for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < cols; j++) {
       const tData = document.createElement("td");
 
       tData.classList.add("table-row");
-      tData.textContent = `Row 0${i + 1}`;
+      tData.textContent = `Row ${i + 1} Column ${j + 1}`;
       tRow.appendChild(tData);
     }
     tableBody.append(tRow);

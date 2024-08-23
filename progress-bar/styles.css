@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+}
+#main-div{
+    background-color: whitesmoke;
+    height: 100vh;
+    width: 100vw;
+    padding: 5%;
+}
+#full-bar{
+    width:70%;
+    height: 5%;
+    background-color: lightgrey;
+}
+#current-progress{
+    background-color: violet;
+    width: 40%;
+    height: 100%
+}

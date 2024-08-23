@@ -55,14 +55,24 @@ const locations = [
 const filterInput = document.getElementById('filter')
 const locationListHolder = document.getElementById('location-list')
 
+
+const createList = (locationList) => {
+  locationListHolder.innerHTML = ''
+  const ulElement = document.createElement('ul')  
+  locationList.forEach((item) => {
+    const liElement = document.createElement('li')
+    liElement.textContent = item
+    ulElement.appendChild(liElement)  
+  });
+  locationListHolder.appendChild(ulElement)
+}
+
 window.addEventListener('load', () => {
-  locationListHolder.textContent = locations
+  createList(locations)
 })
 
 filterInput.addEventListener('keyup', (e) => {
   let searchTerm = e.target.value.toLowerCase()
   let filteredLocations = locations.filter((item) => item.toLowerCase().includes(searchTerm))
-  locationListHolder.textContent = filteredLocations
-
-  console.log(filteredLocations)
+  createList(filteredLocations)
 })

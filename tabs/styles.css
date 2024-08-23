@@ -1,3 +1,6 @@
+body{
+    padding: 25px;
+}
 #tab-container{
     display: flex;
     flex-direction: row;
@@ -9,4 +12,12 @@
     margin-left: 5px;
     margin-right: 5px;
     cursor: pointer;
+}
+
+.active{
+    border: 2px solid blue;
+}
+
+#content-container{
+    margin-top: 20px;
 }

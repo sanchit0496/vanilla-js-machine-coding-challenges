@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+}
+#main-div{
+    background-color: whitesmoke;
+    height: 100%;
+    width: 100%;
+}
+.post{
+    border: 1px solid gray;
+    background-color: whitesmoke;
+    padding: 5px;
+    margin: 0px 5px 20px 5px;
+    cursor: pointer;
+}
+
+.postTitle{
+    background-color: lightgray;
+    padding: 5px;
+}
+.postDesc{
+    padding: 5px
+}
+
+#post-holder{
+    padding: 10px
+}

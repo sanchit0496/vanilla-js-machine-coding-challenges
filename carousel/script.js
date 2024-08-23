@@ -30,27 +30,34 @@ const prevButton = document.getElementById("prev");
 const nextButton = document.getElementById("next");
 
 const imageElement = document.createElement("img");
-imageElement.src = images[0].src;
 imageHolder.appendChild(imageElement);
 
 let activeIndex = 0;
 
+const updateImage = () => {
+  imageElement.src = images[activeIndex].src
+  imageElement.alt = images[activeIndex].alt
+  imageElement.title = images[activeIndex].title
+}
+
+updateImage()
+
 nextButton.addEventListener("click", () => {
   if (activeIndex === images.length - 1) {
     activeIndex = 0;
-    imageElement.src = images[activeIndex].src;
+    updateImage()
   } else {
     activeIndex++;
-    imageElement.src = images[activeIndex].src;
+    updateImage()
   }
 });
 
 prevButton.addEventListener("click", () => {
   if (activeIndex === 0) {
     activeIndex = images.length - 1;
-    imageElement.src = images[activeIndex].src;
+    updateImage()
   } else {
     activeIndex--;
-    imageElement.src = images[activeIndex].src;
+    updateImage()
   }
 });

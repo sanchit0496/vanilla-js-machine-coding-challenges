@@ -3,7 +3,7 @@ const form = document.getElementById("contact-form");
 const firstNameInput = document.getElementById("first-name");
 const lastNameInput = document.getElementById("last-name");
 const emailInput = document.getElementById("email");
-const feedbackInput = document.getElementById('feedback')
+const feedbackInput = document.getElementById('feedback');
 
 const fNameErrorSpan = document.getElementById("fNameError");
 const lNameErrorSpan = document.getElementById("lNameError");
@@ -31,62 +31,60 @@ feedbackInput.addEventListener("change", (e) => {
   feedback = e.target.value;
 });
 
-const validateForm = () => {
-  let errorArr = []
-  if (fName.length === 0) {
-    fNameErrorSpan.textContent = "First Name cannot be empty";
-    firstNameInput.style.border = "1px solid red";
-    errorArr.push('First Name cannot be empty')
-    errorArr.p
-  } else {
-    fNameErrorSpan.textContent = "";
-    firstNameInput.style.border = "1px solid black";
-  }
-  if (lName.length === 0) {
-    lNameErrorSpan.textContent = "Last Name cannot be empty";
-    lastNameInput.style.border = "1px solid red";
-    errorArr.push('Last Name cannot be empty')
+const setError = (inputElement, errorSpan, errorMessage) => {
+  errorSpan.textContent = errorMessage;
+  inputElement.style.border = '1px solid red';
+};
 
+const removeError = (inputElement, errorSpan) => {
+  errorSpan.textContent = '';
+  inputElement.style.border = '1px solid black';
+};
+
+const validateForm = () => {
+  let errorArr = [];
+  
+  if (fName.length === 0) {
+    setError(firstNameInput, fNameErrorSpan, "First Name cannot be empty");
+    errorArr.push('First Name cannot be empty');
   } else {
-    lNameErrorSpan.textContent = "";
-    lastNameInput.style.border = "1px solid black";
+    removeError(firstNameInput, fNameErrorSpan);
+  }
+
+  if (lName.length === 0) {
+    setError(lastNameInput, lNameErrorSpan, "Last Name cannot be empty");
+    errorArr.push('Last Name cannot be empty');
+  } else {
+    removeError(lastNameInput, lNameErrorSpan);
   }
 
   if (email.length === 0) {
-    emailErrorSpan.textContent = "Email cannot be empty";
-    emailInput.style.border = "1px solid red";
-    errorArr.push('Email cannot be empty')
-
+    setError(emailInput, emailErrorSpan, "Email cannot be empty");
+    errorArr.push('Email cannot be empty');
   } 
   else if(!email.includes('@')){
-    emailErrorSpan.textContent = "Incorrect Format";
-    emailInput.style.border = "1px solid red";
-    errorArr.push('Incorrect Format')
-
+    setError(emailInput, emailErrorSpan, "Incorrect Format");
+    errorArr.push('Incorrect Format');
   }
   else {
-    emailErrorSpan.textContent = "";
-    emailInput.style.border = "1px solid black";
+    removeError(emailInput, emailErrorSpan);
   }
 
   if (feedback.length === 0) {
-    feedbackErrorSpan.textContent = "Feedback cannot be empty";
-    feedbackInput.style.border = "1px solid red";
-    errorArr.push('Feedback cannot be empty')
-
+    setError(feedbackInput, feedbackErrorSpan, "Feedback cannot be empty");
+    errorArr.push('Feedback cannot be empty');
   } else {
-    feedbackErrorSpan.textContent = "";
-    feedbackInput.style.border = "1px solid black";
+    removeError(feedbackInput, feedbackErrorSpan);
   }
-  return errorArr
+  
+  return errorArr;
 };
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault()
+  e.preventDefault();
   let err = validateForm();
-  console.log(err)
-  if(err.length === 0){
-    console.log('call the api here ')
+  console.log(err);
+  if (err.length === 0) {
+    console.log('call the API here');
   }
-
 });

@@ -29,29 +29,28 @@ const imageHolder = document.getElementById("image-holder");
 const prevButton = document.getElementById("prev");
 const nextButton = document.getElementById("next");
 
+const imageElement = document.createElement("img");
+imageElement.src = images[0].src;
+imageHolder.appendChild(imageElement);
+
 let activeIndex = 0;
-imageHolder.textContent = activeIndex;
 
 nextButton.addEventListener("click", () => {
-  if(activeIndex === images.length -1){
-    activeIndex = 0
-    imageHolder.textContent = activeIndex;
-
-  }else{
+  if (activeIndex === images.length - 1) {
+    activeIndex = 0;
+    imageElement.src = images[activeIndex].src;
+  } else {
     activeIndex++;
-    imageHolder.textContent = activeIndex;
-
+    imageElement.src = images[activeIndex].src;
   }
 });
 
 prevButton.addEventListener("click", () => {
-  if(activeIndex === 0){
-    activeIndex = images.length -1
-    imageHolder.textContent = activeIndex;
-
-  }else{
+  if (activeIndex === 0) {
+    activeIndex = images.length - 1;
+    imageElement.src = images[activeIndex].src;
+  } else {
     activeIndex--;
-    imageHolder.textContent = activeIndex;
-
+    imageElement.src = images[activeIndex].src;
   }
 });

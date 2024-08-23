@@ -1,0 +1,8 @@
+.dynamic-table{
+    border: 1px solid black;
+    margin-top: 25px;
+}
+.table-head{
+    border: 1px solid gray;
+    padding: 5px
+}

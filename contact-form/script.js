@@ -72,7 +72,7 @@ const validateForm = () => {
   if (feedback.length === 0) {
     feedbackErrorSpan.textContent = "Feedback cannot be empty";
     feedbackInput.style.border = "1px solid red";
-    errorArr.push('Format cannot be empty')
+    errorArr.push('Feedback cannot be empty')
 
   } else {
     feedbackErrorSpan.textContent = "";

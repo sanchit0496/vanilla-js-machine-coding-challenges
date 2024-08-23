@@ -15,7 +15,7 @@ columnInput.addEventListener("change", (e) => {
 });
 
 function createTable(rows, cols) {
-  console.log("called", cols);
+  tableContainer.innerHTML = ''
   const table = document.createElement("table");
   table.classList.add("dynamic-table");
 
@@ -31,22 +31,21 @@ function createTable(rows, cols) {
   for (let i = 0; i < rows; i++) {
     const tRow = document.createElement("tr");
 
-    const tData = document.createElement("td");
+    for (let i = 0; i < cols; i++) {
+      const tData = document.createElement("td");
 
-    tData.classList.add("table-row");
-    tData.textContent = `Row 0${i + 1}`;
-    tRow.appendChild(tData);
+      tData.classList.add("table-row");
+      tData.textContent = `Row 0${i + 1}`;
+      tRow.appendChild(tData);
+    }
     tableBody.append(tRow);
   }
   table.appendChild(tableHead);
   table.appendChild(tableBody);
   tableContainer.appendChild(table);
-  console.log(tableContainer);
 }
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  console.log(rows, columns);
+  createTable(rows, columns);
 });
-createTable(8, 5);

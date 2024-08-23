@@ -33,11 +33,25 @@ let activeIndex = 0;
 imageHolder.textContent = activeIndex;
 
 nextButton.addEventListener("click", () => {
-  activeIndex++;
-  imageHolder.textContent = activeIndex;
+  if(activeIndex === images.length -1){
+    activeIndex = 0
+    imageHolder.textContent = activeIndex;
+
+  }else{
+    activeIndex++;
+    imageHolder.textContent = activeIndex;
+
+  }
 });
 
 prevButton.addEventListener("click", () => {
-  activeIndex--;
-  imageHolder.textContent = activeIndex;
+  if(activeIndex === 0){
+    activeIndex = images.length -1
+    imageHolder.textContent = activeIndex;
+
+  }else{
+    activeIndex--;
+    imageHolder.textContent = activeIndex;
+
+  }
 });

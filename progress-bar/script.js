@@ -1,17 +1,15 @@
-const currentProgressBar = document.getElementById('current-progress')
+const currentProgressBar = document.getElementById("current-progress");
 
 let initialProgress = 10;
-currentProgressBar.style.width = `${initialProgress}%`
+currentProgressBar.style.width = `${initialProgress}%`;
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   const intv = setInterval(() => {
-    initialProgress = initialProgress + 10
-    currentProgressBar.style.width = `${initialProgress}%`
+    initialProgress = initialProgress + 10;
+    currentProgressBar.style.width = `${initialProgress}%`;
 
-    if(initialProgress >= 100){
-      clearInterval(intv)
+    if (initialProgress >= 100) {
+      clearInterval(intv);
     }
-    }, 500);
-  
-})
-
+  }, 500);
+});

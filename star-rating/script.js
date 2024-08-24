@@ -11,8 +11,6 @@ for (let i = 0; i < NUMBER_OF_STARS; i++) {
 
 const stars = document.querySelectorAll(".star-icon");
 
-console.log(stars);
-
 const resetStars = () => {
   for (let i = 0; i < NUMBER_OF_STARS; i++) {
     stars[i].style.color = "black";

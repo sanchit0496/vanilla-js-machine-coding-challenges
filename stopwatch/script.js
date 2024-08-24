@@ -69,9 +69,7 @@ form.addEventListener("submit", (e) => {
     const inte = setInterval(() => {
       if (sec === 1) {
         clearInterval(inte);
-        timerHour.style.color = "gray";
-        timerMin.style.color = "gray";
-        timerSec.style.color = "gray";
+        resetStopwatch();
       }
       sec--;
 

@@ -23,6 +23,7 @@ const resetStopwatch = () => {
 window.addEventListener('load', () => resetStopwatch())
 
 startBtn.addEventListener('click', () => {
+  startBtn.style.pointerEvents = 'none'
   inte = setInterval(() => {
     sec++;
     console.log(sec)
@@ -38,6 +39,8 @@ startBtn.addEventListener('click', () => {
 })
 
 resetBtn.addEventListener('click', () => {
+  startBtn.style.pointerEvents = 'auto'
+
   clearInterval(inte)
   sec = 0
   resetStopwatch()

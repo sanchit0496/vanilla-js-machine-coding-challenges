@@ -1,4 +1,7 @@
 const dropdownContainer = document.getElementById("dropdown");
+const searchBar = document.getElementById('search')
+const searchItems = document.getElementById('search-items')  
+
 const OPTIONS = [
   "Sydney",
   "Tokyo",
@@ -13,13 +16,23 @@ const OPTIONS = [
 ];
 
 const createList = (array) => {
+  searchItems.innerHTML = null
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
     const listItem = document.createElement('div')
     listItem.classList.add('list-item')
     listItem.textContent = element
-    dropdownContainer.appendChild(listItem)
+    searchItems.appendChild(listItem)
   }
+  dropdownContainer.appendChild(searchItems)
 }
 
 window.addEventListener('load', () => createList(OPTIONS))
+
+
+searchBar.addEventListener('keyup', (e) => {
+  let searchTerm = e.target.value.toLowerCase()
+  let filteredList = OPTIONS.filter((item) => item.toLowerCase().includes(searchTerm))
+  createList(filteredList)
+  console.log(filteredList)
+})

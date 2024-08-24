@@ -1,4 +1,5 @@
 const form = document.getElementById("main-div");
+const instalmentDiv = document.getElementById("instalment-calculated");
 
 const principalInput = document.getElementById("principal-container");
 const rateInput = document.getElementById("rate");
@@ -12,16 +13,22 @@ let principal = "";
 let rate = "";
 let timePeriod = "";
 
-principalInput.addEventListener("change", (e) => {
-    principal = e.target.value;
+const allowOnlyNumbers = (e) => {
+    let retVal = e.target.value.replace(/[^0-9]/g, '');
+    e.target.value = retVal
+    return retVal
+};
+
+principalInput.addEventListener("input", (e) => {
+    principal = allowOnlyNumbers(e);
 });
 
-rateInput.addEventListener("change", (e) => {
-  rate = e.target.value;
+rateInput.addEventListener("input", (e) => {
+  rate = allowOnlyNumbers(e);
 });
 
-timePeriodInput.addEventListener("change", (e) => {
-  timePeriod = e.target.value;
+timePeriodInput.addEventListener("input", (e) => {
+  timePeriod = allowOnlyNumbers(e);
 });
 
 const setError = (inputElement, errorSpan, errorMessage) => {
@@ -39,6 +46,7 @@ const validateForm = () => {
   
   if (principal.length === 0) {
     setError(principalInput, principalErrorSpan, "Principal cannot be empty");
+    
     errorArr.push('Principal cannot be empty');
   } else {
     removeError(principalInput, principalErrorSpan);
@@ -46,6 +54,7 @@ const validateForm = () => {
 
   if (rate.length === 0) {
     setError(rateInput, rateErrorSpan, "Rate cannot be empty");
+   
     errorArr.push('Rate cannot be empty');
   } else {
     removeError(rateInput, rateErrorSpan);
@@ -56,11 +65,25 @@ const validateForm = () => {
     errorArr.push('Time Period cannot be empty');
   }
   else {
-    removeError(emailInput, emailErrorSpan);
+    removeError(timePeriodInput, timePeriodErrorSpan);
   }
 
   return errorArr;
 };
+
+function calculateEMI(principal, annualInterestRate, loanTenureYears) {
+    // Convert annual interest rate to a monthly interest rate
+    let monthlyInterestRate = annualInterestRate / (12 * 100);
+
+    // Convert loan tenure in years to months
+    let numberOfMonths = loanTenureYears * 12;
+
+    let instalment = (principal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfMonths)) / 
+              (Math.pow(1 + monthlyInterestRate, numberOfMonths) - 1);
+
+    return isNaN(instalment) ? 0.00 : instalment.toFixed(2); 
+}
+
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -68,5 +91,7 @@ form.addEventListener("submit", (e) => {
   console.log(err);
   if (err.length === 0) {
     console.log('call the API here');
+    const instalmentAmount = calculateEMI(principal, rate, timePeriod)
+    instalmentDiv.textContent = `Your instalment comes up to be Rs ${instalmentAmount}`
   }
 });

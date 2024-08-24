@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+}
+#main-div{
+    background-color: whitesmoke;
+    height: 100vh;
+    width: 100vw;
+}
+input{
+    border: 1px solid black;
+}
+.formElem{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#timer{
+    display: flex;
+    flex-direction: row;
+}
+.data{
+    padding: 20px;
+    font-size: 20px;
+    color: black;
+}

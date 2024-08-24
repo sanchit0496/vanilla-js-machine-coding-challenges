@@ -1,14 +1,47 @@
-const incBtn = document.getElementById('inc-button')
-const decBtn = document.getElementById('dec-button')
+const form = document.getElementById("main-div");
 
-const currentCountDiv = document.getElementById('current-count')
-let count = 0
-currentCountDiv.textContent = count
+const secInput = document.getElementById("input-sec");
+const secInputErrorSpan = document.getElementById("inputSecError");
 
-const counterChange = (type) => {
-  type === 'inc' ? count++ :  count--
-  currentCountDiv.textContent = count
+let sec = "";
+
+const onlyNumbers = (e) => {
+  let temp = e.target.value.replace(/[^0-9]/g, '')
+  e.target.value = temp
+  return temp
 }
 
-incBtn.addEventListener('click', () => counterChange('inc'))
-decBtn.addEventListener('click', () => counterChange('dec'))
+secInput.addEventListener("input", (e) => {
+  sec = onlyNumbers(e)
+});
+
+const setError = (inputElement, errorSpan, errorMessage) => {
+  errorSpan.textContent = errorMessage;
+  inputElement.style.border = '1px solid red';
+};
+
+const removeError = (inputElement, errorSpan) => {
+  errorSpan.textContent = '';
+  inputElement.style.border = '1px solid black';
+};
+
+const validateForm = () => {
+  let errorArr = [];
+  
+  if (sec.length === 0) {
+    setError(secInput, secInputErrorSpan, "Input cannot be empty");
+    errorArr.push('Input cannot be empty');
+  } else {
+    removeError(secInput, secInputErrorSpan);
+  }
+  
+  return errorArr;
+};
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let err = validateForm();
+  if (err.length === 0) {
+    console.log('call the API here');
+  }
+});

@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+}
+#main-div{
+    background-color: whitesmoke;
+    height: 100vh;
+    width: 100%;
+    margin: 5px;
+}
+
+input{
+    border: 1px solid black;
+}
+.formElem{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+#submit-button{
+    margin: 10px;
+}

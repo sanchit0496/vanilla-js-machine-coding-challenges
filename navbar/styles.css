@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+}
+#main-div{
+    background-color: whitesmoke;
+    height: 100vh;
+    width: 100vw;
+}
+#navbar-ul{
+    display: flex;
+    flex-direction: row;
+}
+#navbar-li{
+    padding: 10px;
+    cursor: pointer;
+}
+#hamburger-handle{
+    padding: 25px;
+    cursor: pointer;
+}
+#hamburger-item{
+    margin: 0px 0px 0px 15px;
+    cursor: pointer;
+}
+#hamburger-items{
+    display: none;
+}

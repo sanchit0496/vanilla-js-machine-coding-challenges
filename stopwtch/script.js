@@ -8,6 +8,7 @@ const timerMin = document.getElementById("timer-min");
 const timerSec = document.getElementById("timer-sec");
 
 let sec = 0
+let inte = null
 
 const resetStopwatch = () => {
   timerHour.textContent = "00";
@@ -22,7 +23,7 @@ const resetStopwatch = () => {
 window.addEventListener('load', () => resetStopwatch())
 
 startBtn.addEventListener('click', () => {
-  setInterval(() => {
+  inte = setInterval(() => {
     sec++;
     console.log(sec)
 
@@ -34,4 +35,10 @@ startBtn.addEventListener('click', () => {
     timerMin.textContent = minDisplay.toString().padStart(2, "0");
     timerSec.textContent = secDisplay.toString().padStart(2, "0");
   }, 1000);
+})
+
+resetBtn.addEventListener('click', () => {
+  clearInterval(inte)
+  sec = 0
+  resetStopwatch()
 })

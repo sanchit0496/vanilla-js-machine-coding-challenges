@@ -28,14 +28,12 @@ window.addEventListener('resize', () => {
 });
 
 handle.addEventListener('click', ()  => {
-    console.log(hamburgerItems.style.display)
-    hamburgerItems.style.display = 'block'
 
-    // if(hamburgerItems.style.display = 'block'){
-    //     hamburgerItems.style.display = 'none'
-    // }else{
-    //     hamburgerItems.style.display = 'block'
-    // }
+    if(hamburgerItems.style.display === 'block'){
+        hamburgerItems.style.display = 'none'
+    }else{
+        hamburgerItems.style.display = 'block'
+    }
 })
 
 hamburgerItem.addEventListener('click', () => {

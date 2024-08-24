@@ -62,9 +62,16 @@ form.addEventListener("submit", (e) => {
   if (err.length === 0) {
     console.log("call the API here");
 
+    timerHour.style.color = "black";
+    timerMin.style.color = "black";
+    timerSec.style.color = "black";
+
     const inte = setInterval(() => {
       if (sec === 1) {
         clearInterval(inte);
+        timerHour.style.color = "gray";
+        timerMin.style.color = "gray";
+        timerSec.style.color = "gray";
       }
       sec--;
 

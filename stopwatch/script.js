@@ -62,20 +62,19 @@ form.addEventListener("submit", (e) => {
   if (err.length === 0) {
     console.log("call the API here");
 
-    setInterval(() => {
+    const inte = setInterval(() => {
+      if (sec === 1) {
+        clearInterval(inte);
+      }
       sec--;
 
       let minDisplay = Math.floor(sec / 60);
       let hourDisplay = Math.floor(sec / 3600);
       let secDisplay = sec - 60 * minDisplay;
 
-      timerHour.textContent = hourDisplay;
-      timerMin.textContent = minDisplay;
-      timerSec.textContent = secDisplay;
-
-      if (sec === 0) {
-        clearInterval();
-      }
+      timerHour.textContent = hourDisplay.toString().padStart(2, "0");
+      timerMin.textContent = minDisplay.toString().padStart(2, "0");
+      timerSec.textContent = secDisplay.toString().padStart(2, "0");
     }, 1000);
   }
 });

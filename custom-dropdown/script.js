@@ -2,6 +2,7 @@ const dropdownContainer = document.getElementById("dropdown");
 const searchBar = document.getElementById('search')
 const searchItems = document.getElementById('search-items')  
 const selectedOptionDisplay = document.getElementById('selected-option')
+const searchContainer = document.getElementById('search-container')
 
 const OPTIONS = [
   "Sydney",
@@ -26,6 +27,7 @@ const createList = (array) => {
 
     listItem.addEventListener('click', () => {
       selectedOptionDisplay.textContent = `Your Selected City Is ${element}`
+      searchItems.style.display = 'none'
     })
 
     searchItems.appendChild(listItem)
@@ -40,4 +42,12 @@ searchBar.addEventListener('keyup', (e) => {
   let filteredList = OPTIONS.filter((item) => item.toLowerCase().includes(searchTerm))
   createList(filteredList)
   console.log(filteredList)
+})
+
+searchContainer.addEventListener('click', () => {
+  if(searchItems.style.display === 'block'){
+    searchItems.style.display = 'none'
+  }else{
+    searchItems.style.display = 'block'
+  }
 })

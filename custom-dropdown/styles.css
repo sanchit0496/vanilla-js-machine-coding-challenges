@@ -1,8 +1,16 @@
 *{
     margin: 0;
+    padding: 5px;
 }
 #main-div{
     background-color: whitesmoke;
     height: 100vh;
     width: 100vw;
+}
+#selected-option{
+    font-size: 18px;
+    padding: 20px;
+}
+.list-item{
+    cursor: pointer;
 }

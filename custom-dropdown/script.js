@@ -1,6 +1,7 @@
 const dropdownContainer = document.getElementById("dropdown");
 const searchBar = document.getElementById('search')
 const searchItems = document.getElementById('search-items')  
+const selectedOptionDisplay = document.getElementById('selected-option')
 
 const OPTIONS = [
   "Sydney",
@@ -22,13 +23,17 @@ const createList = (array) => {
     const listItem = document.createElement('div')
     listItem.classList.add('list-item')
     listItem.textContent = element
+
+    listItem.addEventListener('click', () => {
+      selectedOptionDisplay.textContent = `Your Selected City Is ${element}`
+    })
+
     searchItems.appendChild(listItem)
   }
   dropdownContainer.appendChild(searchItems)
 }
 
 window.addEventListener('load', () => createList(OPTIONS))
-
 
 searchBar.addEventListener('keyup', (e) => {
   let searchTerm = e.target.value.toLowerCase()

@@ -14,3 +14,13 @@ input{
     display: flex;
     flex-direction: column;
 }
+
+#timer{
+    display: flex;
+    flex-direction: row;
+}
+.data{
+    padding: 20px;
+    font-size: 20px;
+    color: black;
+}

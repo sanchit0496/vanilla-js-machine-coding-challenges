@@ -1,5 +1,23 @@
 const form = document.getElementById("main-div");
 
+const timer = document.getElementById("timer");
+const timerHour = document.getElementById("timer-hour");
+const timerMin = document.getElementById("timer-min");
+const timerSec = document.getElementById("timer-sec");
+
+const resetStopwatch = () => {
+  timerHour.textContent = '00'
+  timerMin.textContent = '00'
+  timerSec.textContent = '00'
+
+  timerHour.style.color = 'gray'
+  timerMin.style.color = 'gray'
+  timerSec.style.color = 'gray'
+}
+window.addEventListener('load', () => {
+  resetStopwatch()
+})
+
 const secInput = document.getElementById("input-sec");
 const secInputErrorSpan = document.getElementById("inputSecError");
 
@@ -43,5 +61,14 @@ form.addEventListener("submit", (e) => {
   let err = validateForm();
   if (err.length === 0) {
     console.log('call the API here');
+
+    let minDisplay = Math.floor(sec/ 60)
+    let hourDisplay = Math.floor(sec/ 3600)
+    let secDisplay= sec -(60* minDisplay)
+
+    timerHour.textContent = hourDisplay
+    timerMin.textContent = minDisplay
+    timerSec.textContent = secDisplay
+ 
   }
 });

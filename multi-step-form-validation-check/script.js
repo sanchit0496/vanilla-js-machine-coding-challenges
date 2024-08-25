@@ -13,6 +13,11 @@ const lNameErrorSpan = document.getElementById("lNameError");
 const emailErrorSpan = document.getElementById("emailError");
 const feedbackErrorSpan = document.getElementById("feedbackError");
 
+const fNameContainer = document.getElementById("fNameContainer");
+const lNameContainer = document.getElementById("lNameContainer");
+const emailContainer = document.getElementById("emailContainer");
+const feedbackContainer = document.getElementById("feedbackContainer");
+
 let fName = "";
 let lName = "";
 let email = "";
@@ -28,11 +33,54 @@ const inputElements = [
 
 window.addEventListener("load", () => {
   console.log(inputElements[count]);
+  displayFormElement(count);
 });
+
+const displayFormElement = (index) => {
+  console.log(index);
+  switch (index) {
+    case 0:
+      fNameContainer.style.display = "block";
+      lNameContainer.style.display = "none";
+      emailContainer.style.display = "none";
+      feedbackContainer.style.display = "none";
+      break;
+    case 1:
+      console.log("here");
+      fNameContainer.style.display = "none";
+      lNameContainer.style.display = "block";
+      emailContainer.style.display = "none";
+      feedbackContainer.style.display = "none";
+      break;
+    case 2:
+      fNameContainer.style.display = "none";
+      lNameContainer.style.display = "none";
+      emailContainer.style.display = "block";
+      feedbackContainer.style.display = "none";
+      break;
+    case 3:
+      fNameContainer.style.display = "none";
+      lNameContainer.style.display = "none";
+      emailContainer.style.display = "none";
+      feedbackContainer.style.display = "block";
+
+    default:
+      break;
+  }
+};
+
 nextBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  count++;
-  if (count === inputElements.length - 1) {
+
+  displayFormElement(count);
+  let err = validateForm(count)
+  if (err.length > 0) {
+    
+  } else {
+    count++;
+  }
+  console.log(err);
+  if (count === inputElements.length) {
     nextBtn.style.display = "none";
     submitBtn.style.display = "block";
   }
@@ -65,38 +113,46 @@ const removeError = (inputElement, errorSpan) => {
   inputElement.style.border = "1px solid black";
 };
 
-const validateForm = () => {
+const validateForm = (index) => {
   let errorArr = [];
-
-  if (fName.length === 0) {
-    setError(firstNameInput, fNameErrorSpan, "First Name cannot be empty");
-    errorArr.push("First Name cannot be empty");
-  } else {
-    removeError(firstNameInput, fNameErrorSpan);
-  }
-
-  if (lName.length === 0) {
-    setError(lastNameInput, lNameErrorSpan, "Last Name cannot be empty");
-    errorArr.push("Last Name cannot be empty");
-  } else {
-    removeError(lastNameInput, lNameErrorSpan);
-  }
-
-  if (email.length === 0) {
-    setError(emailInput, emailErrorSpan, "Email cannot be empty");
-    errorArr.push("Email cannot be empty");
-  } else if (!email.includes("@")) {
-    setError(emailInput, emailErrorSpan, "Incorrect Format");
-    errorArr.push("Incorrect Format");
-  } else {
-    removeError(emailInput, emailErrorSpan);
-  }
-
-  if (feedback.length === 0) {
-    setError(feedbackInput, feedbackErrorSpan, "Feedback cannot be empty");
-    errorArr.push("Feedback cannot be empty");
-  } else {
-    removeError(feedbackInput, feedbackErrorSpan);
+  switch (index) {
+    case 0:
+      if (fName.length === 0) {
+        setError(firstNameInput, fNameErrorSpan, "First Name cannot be empty");
+        errorArr.push("First Name cannot be empty");
+      } else {
+        removeError(firstNameInput, fNameErrorSpan);
+      }
+      break;
+    case 1:
+      if (lName.length === 0) {
+        setError(lastNameInput, lNameErrorSpan, "Last Name cannot be empty");
+        errorArr.push("Last Name cannot be empty");
+      } else {
+        removeError(lastNameInput, lNameErrorSpan);
+      }
+      break;
+    case 2:
+      if (email.length === 0) {
+        setError(emailInput, emailErrorSpan, "Email cannot be empty");
+        errorArr.push("Email cannot be empty");
+      } else if (!email.includes("@")) {
+        setError(emailInput, emailErrorSpan, "Incorrect Format");
+        errorArr.push("Incorrect Format");
+      } else {
+        removeError(emailInput, emailErrorSpan);
+      }
+      break;
+    case 3:
+      if (feedback.length === 0) {
+        setError(feedbackInput, feedbackErrorSpan, "Feedback cannot be empty");
+        errorArr.push("Feedback cannot be empty");
+      } else {
+        removeError(feedbackInput, feedbackErrorSpan);
+      }
+      break;
+    default:
+      break;
   }
 
   return errorArr;

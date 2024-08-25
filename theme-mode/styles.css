@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    background-color: white;
+}
+
+#main-div {
+    height: 100vh;
+    width: 100vw;
+}
+
+.light {
+    background-color: white;
+}
+
+.dark {
+    background-color: rgb(39, 38, 38);
+}
+
+.card {
+    width: 250px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 25px;
+}
+
+.card.dark {
+    background-color: rgb(39, 38, 38);
+    border: 1px solid black;
+    border: 1px solid white;
+}
+
+.intro {
+    font-weight: 600;
+    color: black;
+}
+
+.desc {
+    margin-top: 10px;
+    color: black;
+}
+
+.intro.dark {
+    color: white;
+}
+
+.desc.dark {
+    color: white;
+}
+
+button {
+    cursor: pointer;
+    padding: 5px;
+    margin: 25px;
+}

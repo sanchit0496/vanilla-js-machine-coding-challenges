@@ -31,56 +31,39 @@ const inputElements = [
   feedbackInput,
 ];
 
+const inputContainers = [
+  fNameContainer,
+  lNameContainer,
+  emailContainer,
+  feedbackContainer,
+];
+
 window.addEventListener("load", () => {
   console.log(inputElements[count]);
   displayFormElement(count);
 });
 
-const displayFormElement = (index) => {
-  console.log(index);
-  switch (index) {
-    case 0:
-      fNameContainer.style.display = "block";
-      lNameContainer.style.display = "none";
-      emailContainer.style.display = "none";
-      feedbackContainer.style.display = "none";
-      break;
-    case 1:
-      console.log("here");
-      fNameContainer.style.display = "none";
-      lNameContainer.style.display = "block";
-      emailContainer.style.display = "none";
-      feedbackContainer.style.display = "none";
-      break;
-    case 2:
-      fNameContainer.style.display = "none";
-      lNameContainer.style.display = "none";
-      emailContainer.style.display = "block";
-      feedbackContainer.style.display = "none";
-      break;
-    case 3:
-      fNameContainer.style.display = "none";
-      lNameContainer.style.display = "none";
-      emailContainer.style.display = "none";
-      feedbackContainer.style.display = "block";
-
-    default:
-      break;
+const displayFormElement = (count) => {
+  for (let i = 0; i < inputContainers.length; i++) {
+    if (i === count) {
+      inputContainers[i].style.display = "block";
+    } else {
+      inputContainers[i].style.display = "none";
+    }
   }
 };
 
 nextBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  displayFormElement(count);
-  let err = validateForm(count)
+  let err = validateForm(count);
   if (err.length > 0) {
-    
   } else {
     count++;
+    displayFormElement(count);
   }
   console.log(err);
-  if (count === inputElements.length) {
+  if (count === inputElements.length - 1) {
     nextBtn.style.display = "none";
     submitBtn.style.display = "block";
   }
@@ -160,7 +143,8 @@ const validateForm = (index) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  let err = validateForm();
+  console.log(inputContainers.length);
+  let err = validateForm(inputContainers.length - 1);
   console.log(err);
   if (err.length === 0) {
     console.log("call the API here");

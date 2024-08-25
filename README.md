@@ -40,6 +40,7 @@ This repository contains a collection of vanilla JavaScript machine coding quest
 | stopwatch                     | Simple stopwatch with start, stop, and reset functionality. |
 | tabs                          | Tab component to switch between different content sections. |
 | temperature-calculator        | Convert temperatures between different units.               |
+| theme-mode                    | Toggle between dark and light mode with local storage integration      |
 | to-do-list                    | Task management app with CRUD operations.                   |
 | traffic                       | Simulate traffic light system using JavaScript.             |
 | tweet                         | Simple tweet box with character count limit.                |

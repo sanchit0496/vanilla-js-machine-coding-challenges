@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+}
+
+input{
+    border: 1px solid black;
+}
+.formElem{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+#contact-form{
+    padding: 25px;
+}
+button{
+    margin-top: 25px;
+}
+.error{
+    font-size: 12px;
+}
+#submit-btn{
+    display: none;
+}

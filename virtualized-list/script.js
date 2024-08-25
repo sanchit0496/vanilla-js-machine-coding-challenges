@@ -17,12 +17,14 @@ const createList = () => {
     itemDiv.classList.add("item");
     itemDiv.textContent = `Div ${i}`;
     itemDiv.style.top = `${i * ITEM_HEIGHT}px`;
-    itemDiv.style.height = `${ITEM_HEIGHT}px`;
     list.appendChild(itemDiv);
   }
-  listContainer.appendChild(list)
+  listContainer.appendChild(list);
 };
 
 window.addEventListener("load", () => createList());
 
-
+listContainer.addEventListener("scroll", () => {
+  console.log("scroll");
+  createList();
+});

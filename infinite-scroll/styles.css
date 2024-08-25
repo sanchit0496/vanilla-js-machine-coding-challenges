@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+}
+#content-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.item {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+#sentinel {
+    height: 20px;
+}

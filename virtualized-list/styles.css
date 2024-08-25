@@ -1,0 +1,32 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent scrolling on the body */
+}
+
+/* List Container */
+#list-container {
+    width: 100%;
+    height: 100vh; /* Full height of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+    position: relative;
+    background-color: #f9f9f9;
+}
+
+/* List Items */
+.item {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+/* Optional: Style for every alternate item */
+.item:nth-child(even) {
+    background-color: #f1f1f1;
+}

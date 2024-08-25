@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+}
+#main-div{
+    background-color: whitesmoke;
+    height: 100vh;
+    width: 100vw;
+}
+header{
+    border: 1px solid gray;
+    height: 10vh;
+}
+#mid-section{
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+#middle-divs{
+    border: 1px solid gray;
+    height: 80vh;
+    width: 33.33vw;
+}
+footer{
+    border: 1px solid gray;
+    height: 9.5vh;
+}
+
+@media (max-width: 768px) {
+    #mid-section{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+    #middle-divs{
+        width: 100vw;
+    }
+}

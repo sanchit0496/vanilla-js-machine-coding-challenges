@@ -26,7 +26,7 @@ This repository contains a collection of vanilla JavaScript machine coding quest
 | digital-clock                 | Digital clock displaying the current time.                  |
 | drag-and-drop                 | Drag and drop functionality for items within a container.   |
 | generate-table                | Dynamically generate tables based on user input.            |
-| grail                         | Example of a Holy Grail layout using vanilla CSS and JS.    |
+| grail                         | Example of a responsive Grail layout using vanilla CSS and JS.    |
 | infinite-scroll               | Infinite scroll implementation for loading more content.    |
 | installment-calculator        | Calculator for computing loan installments.                 |
 | like-button                   | A like button with state management and animation.          |

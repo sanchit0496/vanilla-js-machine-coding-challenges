@@ -5,7 +5,7 @@
   header{
     background-color: #61dafb;
     width: 100%;
-    height: 50px;
+    height: 100px;
   }
   div{ 
     margin: 1px;
@@ -16,24 +16,24 @@
   }
   .left-mid-section{
     width: 40%;
-    height: 200px;
+    height: 400px;
     background-color: aliceblue;
   }
   .right-mid-section{
     width: 60%;
-    height: 200px;
+    height: 400px;
     display: flex;
     flex-direction: column;
   }
   .right-mid-section-top{
-    height: 75px;
+    height: 125px;
     background-color: aquamarine;
   }
   .right-mid-section-bottom{
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 125px;
+    height: 375px;
   }
   .content-2{
     width: 50%;
@@ -44,7 +44,7 @@
     background-color: lightpink;
   }
   footer{
-    height: 50px;
+    height: 75px;
     background-color: lightcoral;
   }
   
@@ -69,12 +69,12 @@
     }
     .content-2{
       width: 100%;
-      height: 75px;
+      height: 150px;
       background-color: lightcyan;
     }
     .content-3{
       width: 100%;
-      height: 75px;
+      height: 150px;
       background-color: lightpink;
     }
   }

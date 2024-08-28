@@ -22,6 +22,8 @@
   .right-mid-section{
     width: 60%;
     height: 200px;
+    display: flex;
+    flex-direction: column;
   }
   .right-mid-section-top{
     height: 75px;
